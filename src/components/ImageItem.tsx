@@ -56,7 +56,7 @@ export const ImageItem: React.FC<Props> = ({
           ) : (
             <Image
               style={theStyles.checkMark}
-              source={require('./assets/check-mark.png')}
+              source={require('../assets/check-mark.png')}
             />
           )}
           {!isChecked && isMaxSelected && <View style={theStyles.overlay} />}
