@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { PKImagePicker } from '../../lib/typescript/PKImagePicker';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { PKImagePicker } from 'react-native-pk-image-picker';
 import { useState } from 'react';
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleOpenPicker}>
-        Open Picker
+        <Text>Open Picker</Text>
       </TouchableOpacity>
       <PKImagePicker
         isVisible={isOpen}
