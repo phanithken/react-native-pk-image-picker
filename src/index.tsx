@@ -24,3 +24,5 @@ export const PkImagePickerView =
     : () => {
         throw new Error(LINKING_ERROR);
       };
+
+export const ImagePicker = PkImagePickerView;
