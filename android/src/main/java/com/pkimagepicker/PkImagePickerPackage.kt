@@ -11,6 +11,6 @@ class PkImagePickerPackage : ReactPackage {
   }
 
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-    return listOf(PkImagePickerViewManager())
+    return listOf(PkImagePickerViewManager(reactContext))
   }
 }

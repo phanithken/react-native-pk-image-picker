@@ -1,12 +1,24 @@
 import * as React from 'react';
 
-import { StyleSheet, View } from 'react-native';
-import { PkImagePickerView } from 'react-native-pk-image-picker';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { PKImagePicker } from '../../lib/typescript/PKImagePicker';
+import { useState } from 'react';
 
 export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpenPicker = () => setIsOpen(true);
+  const handleClosePicker = () => setIsOpen(false);
   return (
     <View style={styles.container}>
-      <PkImagePickerView color="#32a852" style={styles.box} />
+      <TouchableOpacity onPress={handleOpenPicker}>
+        Open Picker
+      </TouchableOpacity>
+      <PKImagePicker
+        isVisible={isOpen}
+        multiple={true}
+        onClose={handleClosePicker}
+        maximum={10}
+      />
     </View>
   );
 }

@@ -7,15 +7,28 @@ A customizable react-native image picker
 ```sh
 npm install react-native-pk-image-picker
 ```
+or
+```
+yarn add react-native-pk-image-picker
+```
 
 ## Usage
 
 ```js
-import { PkImagePickerView } from "react-native-pk-image-picker";
+import { PKImagePicker } from 'react-native-pk-image-picker';
 
 // ...
 
-<PkImagePickerView color="tomato" />
+const [isOpen, setIsOpen] = useState(false);
+const handleOpenPicker = () => setIsOpen(true);
+const handleClosePicker = () => setIsOpen(false);
+
+<PKImagePicker
+  isVisible={isOpen}
+  multiple={true}
+  onClose={handleClosePicker}
+  maximum={10}
+/>
 ```
 
 ## Contributing
