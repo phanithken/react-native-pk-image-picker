@@ -9,11 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set end timestamp
-        id: end
-        run: |
-          printf '::set-output name=timestamp::%(%s)T\n'
-
       - name: Send Slack Message
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
@@ -22,47 +17,11 @@ jobs:
             {
               "blocks": [
                 {
-                  "type": "header",
+                  "type": "section",
                   "text": {
-                    "type": "plain_text",
-                    "text": "iOS has been deployed",
-                    "emoji": true
+                    "type": "mrkdwn",
+                    "text": "Deployment result of repository: ${{ github.event.repository.name }}\n Status: ${{ job.status }}\n Platform: iOS\n Environment: Dev\n Link: https://deploygate.com/distributions/69eef9f83da35de6ee37a3045ea1ebe5a76fdff2"
                   }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Repository:*\n${{ github.event.repository.name }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Status:*\n${{ job.status }}"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Deployed on:*\n${{ steps.date.outputs.date }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Duration:*\n${{ steps.end.outputs.timestamp }}"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Link:*\nhttps://google.com"
-                    }
-                  ]
                 }
               ]
             }
