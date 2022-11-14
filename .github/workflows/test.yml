@@ -15,7 +15,6 @@ jobs:
         with:
           payload: |
             {
-              "text": "Deployment result of repository: ${{ github.event.repository.name }}\n Status: ${{ job.status }}",
               "blocks": [
                 {
                   "type": "section",
