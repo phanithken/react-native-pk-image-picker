@@ -9,9 +9,12 @@
     "pods": "pod-install --quiet"
   },
   "dependencies": {
+    "@react-native-camera-roll/camera-roll": "^5.0.4",
     "react": "18.1.0",
     "react-native": "0.70.4",
-    "react-native-pk-image-picker": "^0.2.1"
+    "react-native-permissions": "^3.6.1",
+    "react-native-pk-image-picker": "^0.2.2",
+    "react-native-safe-area-context": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

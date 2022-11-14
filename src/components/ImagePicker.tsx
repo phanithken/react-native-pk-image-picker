@@ -3,9 +3,8 @@ import type {
   AssetType,
   GroupTypes,
 } from '@react-native-camera-roll/camera-roll';
-import { Dimensions, FlatList, View } from 'react-native';
+import { Dimensions, FlatList, StyleSheet, View } from 'react-native';
 import type { PickerImage } from '../type';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Photo } from '../utils/Photo';
 import { ImageItem } from './ImageItem';
 import Toast from 'react-native-toast-message';
@@ -47,7 +46,6 @@ export const ImagePicker: React.FC<Props> = ({
   maxSize = 10,
   maxSizeErrorText,
 }) => {
-  const insets = useSafeAreaInsets();
   const PHOTO_LENGTH = initialNumToRender;
   const MAX_SELECT_PHOTO_LENGTH = maximum;
   const IMAGE_SIZE =
@@ -60,7 +58,11 @@ export const ImagePicker: React.FC<Props> = ({
   const [selected, setSelected] = useState<PickerImage[]>([]);
 
   useEffect(() => {
+    photoInstance
+      .load()
+      .catch((e) => console.log('Unable to load initial images', e));
     photoInstance.onPhoto((images) => {
+      console.log('@@@@@@@@@@@@@@@@', images);
       setPhotos(images);
     });
   }, [photoInstance]);
@@ -151,7 +153,7 @@ export const ImagePicker: React.FC<Props> = ({
   return (
     <View style={{ backgroundColor }}>
       <FlatList
-        contentContainerStyle={{ paddingBottom: insets.bottom + 40 }}
+        contentContainerStyle={styles.listContainer}
         data={photos}
         renderItem={_renderItem}
         keyExtractor={_ketExtractor}
@@ -162,3 +164,9 @@ export const ImagePicker: React.FC<Props> = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  listContainer: {
+    paddingBottom: 40,
+  },
+});

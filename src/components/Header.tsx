@@ -40,28 +40,28 @@ export const Header: React.FC<Props> = ({
                 {closeText ? closeText : 'Close'}
               </Text>
             </View>
-            {assetType && (
-              <Text style={styles.assetType}>
-                {/*TODO: get text from localization*/}
-                {assetType === 'Photos' ? 'Photos' : 'Videos'}
-              </Text>
-            )}
-            <TouchableOpacity
-              style={{
-                ...styles.actionBtn,
-                ...{
-                  opacity: multiple && selected.length < minSelect ? 0.3 : 1,
-                },
-              }}
-              disabled={multiple && selected.length < minSelect}
-              onPress={onCompleteSelect}
-            >
-              <Text style={styles.updateBtn}>
-                {selectText ? selectText : 'Select'}
-              </Text>
-            </TouchableOpacity>
           </TouchableOpacity>
         </View>
+        {assetType && (
+          <Text style={styles.assetType}>
+            {/*TODO: get text from localization*/}
+            {assetType === 'Photos' ? 'Photos' : 'Videos'}
+          </Text>
+        )}
+        <TouchableOpacity
+          style={{
+            ...styles.actionBtn,
+            ...{
+              opacity: multiple && selected.length < minSelect ? 0.3 : 1,
+            },
+          }}
+          disabled={multiple && selected.length < minSelect}
+          onPress={onCompleteSelect}
+        >
+          <Text style={styles.updateBtn}>
+            {selectText ? selectText : 'Select'}
+          </Text>
+        </TouchableOpacity>
       </View>
     </>
   );
@@ -69,6 +69,7 @@ export const Header: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

@@ -3465,10 +3465,10 @@ react-native-permissions@^3.6.1:
   resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.6.1.tgz#73adcc1cef8cd57a9ef167b4507405f4ff5749c4"
   integrity sha512-fzPpPQXeD34inUccqtoResSwYubfrwUguP4qrVUUv8+KSMjYSaHGoS5HaIJLZHlN9gO+TvLJZ2L5ZljTsb6qnQ==
 
-react-native-pk-image-picker@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-pk-image-picker/-/react-native-pk-image-picker-0.2.1.tgz#4d13f46995d49a9c1f9f1d22664871e42f631360"
-  integrity sha512-WQ5eVd29EGxQdx/PP1lDcNuGS0zLSiTDJ6ojiCIeCBA4UVYH8L0rM2tY4mANzvynhGTKWe8sCBENeGZL5T++0A==
+react-native-pk-image-picker@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-pk-image-picker/-/react-native-pk-image-picker-0.2.2.tgz#1df2e3687fddab95dc1c0d972058627a4d37d69f"
+  integrity sha512-jKpRvmB44OehTi6cln6Afjf0Ei3UDZXl8tmFDtuOusrrOaTzVHhYZIj4YICTQY4qudo4r7c/H9Y0vTZgb8t4jA==
   dependencies:
     "@react-native-async-storage/async-storage" "^1.17.10"
     "@react-native-camera-roll/camera-roll" "^5.0.4"

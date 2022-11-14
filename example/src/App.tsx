@@ -3,23 +3,26 @@ import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { PKImagePicker } from 'react-native-pk-image-picker';
 import { useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenPicker = () => setIsOpen(true);
   const handleClosePicker = () => setIsOpen(false);
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={handleOpenPicker}>
-        <Text>Open Picker</Text>
-      </TouchableOpacity>
-      <PKImagePicker
-        isVisible={isOpen}
-        multiple={true}
-        onClose={handleClosePicker}
-        maximum={10}
-      />
-    </View>
+    <SafeAreaProvider>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={handleOpenPicker}>
+          <Text>Open Picker</Text>
+        </TouchableOpacity>
+        <PKImagePicker
+          isVisible={isOpen}
+          multiple={true}
+          onClose={handleClosePicker}
+          maximum={10}
+        />
+      </View>
+    </SafeAreaProvider>
   );
 }
 
